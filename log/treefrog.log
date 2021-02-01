@@ -1,0 +1,31 @@
+2021-02-01 16:22:07 INFO  [5295928] TreeFrog Framework version 1.30.0
+2021-02-01 16:22:07 INFO  [5295928] Execution environment: Qt 5.15.2 / macOS 10.15
+2021-02-01 16:22:07 INFO  [5295928] TreeFrog application servers started up.
+2021-02-01 16:22:07 WARN  [5295960] Cannot load library /Volumes/EXTERNAL_HDD/source/blogapp/lib/libcontroller: (dlopen(/Volumes/EXTERNAL_HDD/source/blogapp/lib/libcontroller.dylib, 5): image not found)
+2021-02-01 16:22:07 WARN  [5295960] Failed to load application libraries.
+2021-02-01 16:22:07 WARN  [5296064] No such method: staticInitialize() of ApplicationController
+2021-02-01 16:22:58 WARN  [5296862] Reading a socket timed out after 10 seconds. Descriptor:16
+2021-02-01 16:22:59 WARN  [5296860] Reading a socket timed out after 10 seconds. Descriptor:12
+2021-02-01 16:24:39 WARN  [5298792] Reading a socket timed out after 10 seconds. Descriptor:13
+2021-02-01 16:24:39 WARN  [5298791] Reading a socket timed out after 10 seconds. Descriptor:12
+2021-02-01 16:27:40 INFO  [5295928] TreeFrog application servers shutting down
+2021-02-01 16:27:41 INFO  [5295928] TreeFrog application servers shutdown completed
+2021-02-02 07:57:58 INFO  [5947631] TreeFrog Framework version 1.30.0
+2021-02-02 07:57:58 INFO  [5947631] Execution environment: Qt 5.15.2 / macOS 10.15
+2021-02-02 07:57:58 INFO  [5947631] TreeFrog application servers started up.
+2021-02-02 07:57:58 WARN  [5947671] Cannot load library /Volumes/EXTERNAL_HDD/source/blogapp/lib/libcontroller: (dlopen(/Volumes/EXTERNAL_HDD/source/blogapp/lib/libcontroller.dylib, 5): image not found)
+2021-02-02 07:57:58 WARN  [5947671] Failed to load application libraries.
+2021-02-02 07:57:58 WARN  [5947732] No such method: staticInitialize() of ApplicationController
+2021-02-02 07:58:22 WARN  [5948108] Reading a socket timed out after 10 seconds. Descriptor:15
+2021-02-02 07:58:28 WARN  [5948106] Reading a socket timed out after 10 seconds. Descriptor:12
+2021-02-02 07:58:44 INFO  [5947631] TreeFrog application servers shutting down
+2021-02-02 07:58:44 INFO  [5947631] TreeFrog application servers shutdown completed
+2021-02-02 07:59:31 INFO  [5949987] TreeFrog Framework version 1.30.0
+2021-02-02 07:59:31 INFO  [5949987] Execution environment: Qt 5.15.2 / macOS 10.15
+2021-02-02 07:59:31 INFO  [5949987] TreeFrog application servers started up.
+2021-02-02 07:59:45 WARN  [5950223] Reading a socket timed out after 10 seconds. Descriptor:13
+2021-02-02 07:59:45 WARN  [5950222] Reading a socket timed out after 10 seconds. Descriptor:11
+2021-02-02 07:59:56 WARN  [5950478] Reading a socket timed out after 10 seconds. Descriptor:11
+2021-02-02 07:59:56 WARN  [5950479] Reading a socket timed out after 10 seconds. Descriptor:17
+2021-02-02 08:01:25 INFO  [5949987] TreeFrog application servers shutting down
+2021-02-02 08:01:26 INFO  [5949987] TreeFrog application servers shutdown completed

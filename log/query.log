@@ -1,0 +1,7 @@
+2021-02-02 07:59:35  [5950222] PRAGMA journal_mode=WAL
+2021-02-02 07:59:35  [5950222] PRAGMA foreign_keys=ON
+2021-02-02 07:59:35  [5950222] PRAGMA busy_timeout=5000
+2021-02-02 07:59:35  [5950222] PRAGMA synchronous=NORMAL
+2021-02-02 07:59:35  [5950222] [BEGIN] [databaseId:0] rdb00_127
+2021-02-02 07:59:35  [5950222] SELECT "id","title","body","created_at","updated_at","lock_revision" FROM "blog" t0
+2021-02-02 07:59:35  [5950222] [COMMIT] [databaseId:0] rdb00_127
