@@ -16,6 +16,8 @@ jobs:
     # build treefrog
     - name: install treefrog dependency
       run: brew install mysql-connector-c
+    - name: resolve path
+      run: echo 'export PATH="/usr/local/opt/mysql-client/bin:$PATH"' >> /Users/runner/.bash_profile && echo export LDFLAGS="-L/usr/local/opt/mysql-client/lib"  >> /Users/runner/.bash_profile && echo export CPPFLAGS="-I/usr/local/opt/mysql-client/include"  >> /Users/runner/.bash_profile && echo export PKG_CONFIG_PATH="/usr/local/opt/mysql-client/lib/pkgconfig" >> /Users/runner/.bash_profile
     - name: install treefrog
       run: brew install --with-mysql --with-postgresql treefrog
 
