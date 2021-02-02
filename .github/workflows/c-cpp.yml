@@ -31,7 +31,7 @@ jobs:
 #       run: make clean
     - name: execute make
       run: make
-      if: ${{ success() }} || ${{ failure() }}
+      if: always()
     - name: compressive archive
       run: tar cvfz app.tar.gz  config/  db/  lib/  plugin/  public/  sql/
     - name: staging
