@@ -19,6 +19,7 @@ jobs:
 #       run: make check
 #     - name: make distcheck
 #       run: make distcheck
+    # build treefrog
     - name: dependency install
       run: sudo apt-get install -y qt5-default qt5-qmake libqt5sql5-mysql libqt5sql5-psql libqt5sql5-odbc libqt5sql5-sqlite libqt5core5a libqt5qml5 libqt5xml5 qtbase5-dev qtdeclarative5-dev qtbase5-dev-tools gcc g++ make cmake
     - name: dependency db install
@@ -27,31 +28,22 @@ jobs:
       run: wget https://github.com/treefrogframework/treefrog-framework/archive/v1.30.0.tar.gz
     - name: expand treefrog archive 
       run: tar zxvf v*.*.*.tar.gz
-    - name: change directory to treefrog
+    - name: configure treefrog
       run: cd treefrog-framework-*.* && ./configure
-#     - name: configure treefrog
-#       run: ./configure
-    - name: change directory treefrog source
+    - name: make treefrog
       run: cd treefrog-framework-*.*/src && make
-#     - name: make treefrog
-#       run: make
     - name: make install treefrog
       run: cd treefrog-framework-*.*/src && sudo make install treefrog
-    - name: change direcotry ../tools
-      run: cd ../tools
     - name: make treefrog tools
-      run: make
+      run: cd tools && make
     - name: make install treefrog tools
-      run: sudo make install
-    - name: return project directory
-      run: cd ../
+      run: cd tools && sudo make install
+
+    # build project files
     - name: execute qmake.
       run: qmake -r "CONFIG+=release"
-#     - name: make clean
-#       run: make clean
     - name: execute make
       run: make
-      if: always()
     - name: compressive archive
       run: tar cvfz app.tar.gz  config/  db/  lib/  plugin/  public/  sql/
     - name: staging
