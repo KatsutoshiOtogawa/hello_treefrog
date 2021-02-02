@@ -18,15 +18,11 @@ jobs:
       run: brew install mysql-connector-c
     - name: install treefrog
       run: brew install --with-mysql --with-postgresql treefrog
-#     - name: update share library dependency info
-#       run: sudo ldconfig
-#     - name: check 
-#       run: sudo ldconfig -p
 
     # build project files
-    - name: execute qmake.
+    - name: qmake project.
       run: qmake -r "CONFIG+=release"
-    - name: execute make
+    - name: make project
       run: make
     - name: compressive archive
       run: tar cvfz app.tar.gz  config/  db/  lib/  plugin/  public/  sql/
