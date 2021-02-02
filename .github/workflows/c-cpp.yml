@@ -28,7 +28,7 @@ jobs:
     - name: expand treefrog archive 
       run: tar zxvf v*.*.*.tar.gz
     - name: change directory to treefrog
-      run: cd v*.*.*.
+      run: cd treefrog-framework-*.*
     - name: configure treefrog
       run: ./configure
     - name: change directory treefrog source
