@@ -35,9 +35,9 @@ jobs:
     - name: make install treefrog
       run: cd treefrog-framework-*.*/src && sudo make install
     - name: make treefrog tools
-      run: cd tools && make
+      run: cd treefrog-framework-*.*/tools && make
     - name: make install treefrog tools
-      run: cd tools && sudo make install
+      run: cd treefrog-framework-*.*/tools && sudo make install
 
     # build project files
     - name: execute qmake.
