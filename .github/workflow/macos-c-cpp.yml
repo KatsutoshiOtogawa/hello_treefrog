@@ -1,0 +1,38 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: macos-10.15
+
+    steps:
+    - uses: actions/checkout@v2
+    # build treefrog
+    - name: install treefrog dependency
+      run: brew install mysql-connector-c
+    - name: install treefrog
+      run: brew install --with-mysql --with-postgresql treefrog
+#     - name: update share library dependency info
+#       run: sudo ldconfig
+#     - name: check 
+#       run: sudo ldconfig -p
+
+    # build project files
+    - name: execute qmake.
+      run: qmake -r "CONFIG+=release"
+    - name: execute make
+      run: make
+    - name: compressive archive
+      run: tar cvfz app.tar.gz  config/  db/  lib/  plugin/  public/  sql/
+    - name: staging
+      run: mkdir staging && mv app.tar.gz staging/
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Package
+        path: staging
