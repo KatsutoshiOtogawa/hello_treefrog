@@ -15,8 +15,6 @@ jobs:
     - uses: actions/checkout@v2
 #     - name: configure
 #       run: ./configure
-#     - name: make
-#       run: make
 #     - name: make check
 #       run: make check
 #     - name: make distcheck
@@ -25,6 +23,28 @@ jobs:
       run: sudo apt-get install -y qt5-default qt5-qmake libqt5sql5-mysql libqt5sql5-psql libqt5sql5-odbc libqt5sql5-sqlite libqt5core5a libqt5qml5 libqt5xml5 qtbase5-dev qtdeclarative5-dev qtbase5-dev-tools gcc g++ make cmake
     - name: dependency db install
       run: sudo apt-get install -y libmysqlclient-dev libpq5 libodbc1 libmongoc-dev libbson-dev
+    - name: install treefrog
+      run: wget https://github.com/treefrogframework/treefrog-framework/archive/v1.30.0.tar.gz
+    - name: expand treefrog archive 
+      run: tar zxvf v*.*.*.tar.gz
+    - name: change directory to treefrog
+      run: cd v*.*.*.
+    - name: configure treefrog
+      run: ./configure
+    - name: change directory treefrog source
+      run: cd src
+    - name: make treefrog
+      run: make
+    - name: make install treefrog
+      run: sudo make install treefrog
+    - name: change direcotry ../tools
+      run: cd ../tools
+    - name: make treefrog tools
+      run: make
+    - name: make install treefrog tools
+      run: sudo make install
+    - name: return project directory
+      run: cd ../
     - name: execute qmake.
       run: qmake -r "CONFIG+=release"
 #     - name: make clean
