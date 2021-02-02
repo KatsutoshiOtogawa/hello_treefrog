@@ -28,15 +28,15 @@ jobs:
     - name: expand treefrog archive 
       run: tar zxvf v*.*.*.tar.gz
     - name: change directory to treefrog
-      run: cd treefrog-framework-*.*
-    - name: configure treefrog
-      run: ./configure
+      run: cd treefrog-framework-*.* && ./configure
+#     - name: configure treefrog
+#       run: ./configure
     - name: change directory treefrog source
-      run: cd src
-    - name: make treefrog
-      run: make
+      run: cd treefrog-framework-*.*/src && make
+#     - name: make treefrog
+#       run: make
     - name: make install treefrog
-      run: sudo make install treefrog
+      run: cd treefrog-framework-*.*/src && sudo make install treefrog
     - name: change direcotry ../tools
       run: cd ../tools
     - name: make treefrog tools
