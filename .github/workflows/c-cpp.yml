@@ -38,6 +38,8 @@ jobs:
       run: cd treefrog-framework-*.*/tools && make
     - name: make install treefrog tools
       run: cd treefrog-framework-*.*/tools && sudo make install
+    - name: update share library dependency info
+      run: sudo ldconfig
 
     # build project files
     - name: execute qmake.
