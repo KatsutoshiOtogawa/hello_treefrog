@@ -43,8 +43,6 @@ jobs:
 
     # build project files
     - name: execute qmake.
-      run: ./configure
-    - name: execute qmake.
       run: qmake -r "CONFIG+=release"
     - name: execute make
       run: make
