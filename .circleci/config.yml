@@ -18,31 +18,32 @@ jobs:
       - run: cd treefrog-framework-*.*/src && make install
       - run: cd treefrog-framework-*.*/tools && make
       - run: cd treefrog-framework-*.*/tools && make install
-      - run: sudo ldconfig
+      - run: ldconfig
       - run: treefrog -v
       - persist_to_workspace:
           root: /
           paths:
             - workspace
             - usr/local
-  # test:
-  #   docker:
-  #     - image: buildpack-deps:focal-curl
-  #       environment:
-  #         DEBIAN_FRONTEND: noninteractive
-  #   working_directory: /workspace
-  #   steps:
-  #     - attach_workspace:
-  #         at: /
-  #     - run: apt-get update -qq; apt install -y --no-install-recommends gcc g++ make cmake qtbase5-dev qt5-default qt5-qmake qttools5-dev-tools qtdeclarative5-dev qtdeclarative5-dev-tools libqt5sql5 libqt5sql5-sqlite libsqlite3-dev libmongoc-dev libbson-dev sqlite3
-  #     - run: src/test/testall.sh
-  #     - run: tools/tmake/test/tmaketest.sh
-  #     - run: tools/test/releasetest/releasetest
+  build_project:
+    docker:
+      - image: buildpack-deps:focal-curl
+        environment:
+          DEBIAN_FRONTEND: noninteractive
+    working_directory: /workspace
+    steps:
+      - attach_workspace:
+          at: /
+      - run: apt-get update -qq
+      - run: apt install -y --no-install-recommends qt5-default qt5-qmake libqt5sql5-mysql libqt5sql5-psql libqt5sql5-odbc libqt5sql5-sqlite libqt5core5a libqt5qml5 libqt5xml5 qtbase5-dev qtdeclarative5-dev qtbase5-dev-tools gcc g++ make cmake
+      - run: apt install -y --no-install-recommends libmysqlclient-dev libpq5 libodbc1 libmongoc-dev libbson-dev
+      - run: qmake -r "CONFIG+=release"
+      - run: make
 workflows:
   version: 2
   build_test1:
     jobs:
       - ubuntu-foccal
-      # - test:
-      #     requires:
-      #       - ubuntu-foccal
+      - build_project:
+          requires:
+            - ubuntu-foccal
