@@ -33,7 +33,7 @@ jobs:
     - name: make treefrog
       run: cd treefrog-framework-*.* && make -j4 -C src
     - name: make install treefrog
-      run: cd treefrog-framework-*.*/src && sudo make install -C src
+      run: cd treefrog-framework-*.* && sudo make install -C src
     - name: make treefrog tools
       run: cd treefrog-framework-*.* && make -j4 -C tools
     - name: make install treefrog tools
