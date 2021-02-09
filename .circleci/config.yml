@@ -18,6 +18,7 @@ jobs:
       - run: make install -C src 
       - run: make -j4 -C tools
       - run: make install -C tools
+      - run: echo /usr/local/include > /etc/ld.so.conf.d/treefrog.conf
       - run: ldconfig
       - run: treefrog -v
       - persist_to_workspace:
