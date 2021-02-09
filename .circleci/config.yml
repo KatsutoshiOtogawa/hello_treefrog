@@ -19,7 +19,6 @@ jobs:
       - run: cd treefrog-framework-*.* && make -j4 -C tools
       - run: cd treefrog-framework-*.* && make install -C src 
       - run: ldconfig
-      - run: treefrog -v
       - persist_to_workspace:
           root: /
           paths:
