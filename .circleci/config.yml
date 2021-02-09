@@ -13,24 +13,25 @@ jobs:
       - run: apt install -y --no-install-recommends libmysqlclient-dev libpq5 libodbc1 libmongoc-dev libbson-dev
       - run: wget https://github.com/treefrogframework/treefrog-framework/archive/v1.30.0.tar.gz
       - run: tar zxvf v*.*.*.tar.gz
-      - run: cd treefrog-framework-*.* && ./configure --prefix=/usr/local
-      - run: cd treefrog-framework-*.* && make -j4 -C src
-      - run: cd treefrog-framework-*.* && make install -C src 
-      - run: cd treefrog-framework-*.* && make -j4 -C tools
-      - run: cd treefrog-framework-*.* && make install -C tools
+      - run: mv treefrog-framework-*.* treefrog-framework
+      - run: cd treefrog-framework && ./configure --prefix=/usr/local
+      - run: cd treefrog-framework && make -j4 -C src
+      - run: cd treefrog-framework && make install -C src 
+      - run: cd treefrog-framework && make -j4 -C tools
+      - run: cd treefrog-framework && make install -C tools
       - run: ldconfig
       - run: treefrog -v
       - persist_to_workspace:
           root: /
           paths:
-            - workspace
+            - workspace/treefrog-framework
             - usr/local
   build_project:
     docker:
       - image: buildpack-deps:focal-curl
         environment:
           DEBIAN_FRONTEND: noninteractive
-    working_directory: /workspace
+    working_directory: /workspace/treefrog-framework
     steps:
       - attach_workspace:
           at: /
