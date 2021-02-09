@@ -2,7 +2,7 @@ version: 2
 jobs:
   ubuntu-foccal:
     docker:
-      - image: buildpack-deps:focal-curl
+      - image: buildpack-deps:bionic-curl
         environment:
           DEBIAN_FRONTEND: noninteractive
     working_directory: /workspace
@@ -27,7 +27,7 @@ jobs:
             - usr/local
   build_project:
     docker:
-      - image: buildpack-deps:focal-curl
+      - image: buildpack-deps:bionic-curl
         environment:
           DEBIAN_FRONTEND: noninteractive
     working_directory: /workspace
