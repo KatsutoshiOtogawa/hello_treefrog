@@ -29,7 +29,7 @@ jobs:
     - name: expand treefrog archive 
       run: tar zxvf v*.*.*.tar.gz
     - name: configure treefrog
-      run: cd treefrog-framework-*.* && ./configure
+      run: cd treefrog-framework-*.* && ./configure --prefix=/usr/local
     - name: make treefrog
       run: cd treefrog-framework-*.*/src && make
     - name: make install treefrog
