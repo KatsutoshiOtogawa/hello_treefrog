@@ -1,13 +1,48 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
-version: 2.1
-# Use a package of configuration called an orb.
-orbs:
-  # Declare a dependency on the welcome-orb
-  welcome: circleci/welcome-orb@0.4.1
-# Orchestrate or schedule a set of jobs
+version: 2
+jobs:
+  ubuntu-foccal:
+    docker:
+      - image: buildpack-deps:focal-curl
+        environment:
+          DEBIAN_FRONTEND: noninteractive
+    working_directory: /workspace
+    steps:
+      - checkout
+      - run: apt-get update -qq
+      - run: apt install -y --no-install-recommends qt5-default qt5-qmake libqt5sql5-mysql libqt5sql5-psql libqt5sql5-odbc libqt5sql5-sqlite libqt5core5a libqt5qml5 libqt5xml5 qtbase5-dev qtdeclarative5-dev qtbase5-dev-tools gcc g++ make cmake
+      - run: apt install -y --no-install-recommends libmysqlclient-dev libpq5 libodbc1 libmongoc-dev libbson-dev
+      - run: wget https://github.com/treefrogframework/treefrog-framework/archive/v1.30.0.tar.gz
+      - run: tar zxvf v*.*.*.tar.gz
+      - run: cd treefrog-framework-*.* && ./configure
+      - run: cd treefrog-framework-*.*/src && make
+      - run: cd treefrog-framework-*.*/src && make install
+      - run: cd treefrog-framework-*.*/tools && make
+      - run: cd treefrog-framework-*.*/tools && make install
+      - run: sudo ldconfig
+      - run: treefrog -v
+      - persist_to_workspace:
+          root: /
+          paths:
+            - workspace
+            - usr/local
+  # test:
+  #   docker:
+  #     - image: buildpack-deps:focal-curl
+  #       environment:
+  #         DEBIAN_FRONTEND: noninteractive
+  #   working_directory: /workspace
+  #   steps:
+  #     - attach_workspace:
+  #         at: /
+  #     - run: apt-get update -qq; apt install -y --no-install-recommends gcc g++ make cmake qtbase5-dev qt5-default qt5-qmake qttools5-dev-tools qtdeclarative5-dev qtdeclarative5-dev-tools libqt5sql5 libqt5sql5-sqlite libsqlite3-dev libmongoc-dev libbson-dev sqlite3
+  #     - run: src/test/testall.sh
+  #     - run: tools/tmake/test/tmaketest.sh
+  #     - run: tools/test/releasetest/releasetest
 workflows:
-  # Name the workflow "welcome"
-  welcome:
-    # Run the welcome/run job in its own container
+  version: 2
+  build_test1:
     jobs:
-      - welcome/run
+      - ubuntu-foccal
+      # - test:
+      #     requires:
+      #       - ubuntu-foccal
