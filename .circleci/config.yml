@@ -13,11 +13,11 @@ jobs:
       - run: apt install -y --no-install-recommends libmysqlclient-dev libpq5 libodbc1 libmongoc-dev libbson-dev
       - run: wget https://github.com/treefrogframework/treefrog-framework/archive/v1.30.0.tar.gz
       - run: tar zxvf v*.*.*.tar.gz
-      - run: cd treefrog-framework-*.* && ./configure
-      - run: cd treefrog-framework-*.*/src && make
-      - run: cd treefrog-framework-*.*/src && make install
-      - run: cd treefrog-framework-*.*/tools && make
-      - run: cd treefrog-framework-*.*/tools && make install
+      - run: cd treefrog-framework-*.* && ./configure --prefix=/usr/local
+      - run: cd treefrog-framework-*.* && make -j4 -C src
+      - run: cd treefrog-framework-*.* && make install -C src 
+      - run: cd treefrog-framework-*.* && make -j4 -C tools
+      - run: cd treefrog-framework-*.* && make install -C src 
       - run: ldconfig
       - run: treefrog -v
       - persist_to_workspace:
