@@ -40,7 +40,9 @@ jobs:
       - run: apt install -y --no-install-recommends libmysqlclient-dev libpq5 libodbc1 libmongoc-dev libbson-dev
       - run: ls -1 /usr/local/include/treefrog/
       - run: qmake -r "CONFIG+=release"
-      - run: make
+      - run: mkdir build
+      - run: cd build && cmake ../
+      - run: cd build && make
 workflows:
   version: 2
   build_test1:
