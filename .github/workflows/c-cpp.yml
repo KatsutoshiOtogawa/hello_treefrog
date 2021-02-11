@@ -54,6 +54,8 @@ jobs:
       run: cd build && cmake ../
     - name: execute make
       run: cd build && make
+    - name: If not exists sql plugin dir, create those.
+      run: mkdir sql 2> /dev/null && mkdir plugin 2> /dev/null
     - name: compressive archive
       run: tar cvfz app.tar.gz  config/  db/  lib/  plugin/  public/  sql/
     - name: staging
