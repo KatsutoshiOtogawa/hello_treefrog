@@ -25,7 +25,7 @@ jobs:
     - name: dependency db install
       run: sudo apt-get install -y libmysqlclient-dev libpq5 libodbc1 libmongoc-dev libbson-dev
     - name: cmake install for
-      run: sudo snap install cmake
+      run: sudo snap install --classic cmake
     - name: download treefrog source archive
       run: wget https://github.com/treefrogframework/treefrog-framework/archive/v1.30.0.tar.gz
     - name: expand treefrog archive 
