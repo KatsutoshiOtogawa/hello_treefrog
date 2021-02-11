@@ -55,7 +55,7 @@ jobs:
     - name: execute make
       run: cd build && make
     - name: If not exists sql plugin dir, create those.
-      run: mkdir sql 2> /dev/null && mkdir plugin 2> /dev/null
+      run:  if [ ! -e sql ]; then mkdir sql ; fi && if [ ! -e plugin ]; then mkdir plugin ;
     - name: compressive archive
       run: tar cvfz app.tar.gz  config/  db/  lib/  plugin/  public/  sql/
     - name: staging
