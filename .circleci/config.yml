@@ -48,7 +48,7 @@ workflows:
   version: 2
   build_test1:
     jobs:
-      - ubuntu-foccal
+      - ubuntu-focal
       - build_project:
           requires:
             - ubuntu-focal
