@@ -5,3 +5,63 @@
 2021-02-02 07:59:35  [5950222] [BEGIN] [databaseId:0] rdb00_127
 2021-02-02 07:59:35  [5950222] SELECT "id","title","body","created_at","updated_at","lock_revision" FROM "blog" t0
 2021-02-02 07:59:35  [5950222] [COMMIT] [databaseId:0] rdb00_127
+2021-02-12 19:44:51  [1519508] PRAGMA journal_mode=WAL
+2021-02-12 19:44:51  [1519508] PRAGMA foreign_keys=ON
+2021-02-12 19:44:51  [1519508] PRAGMA busy_timeout=5000
+2021-02-12 19:44:51  [1519508] PRAGMA synchronous=NORMAL
+2021-02-12 19:44:51  [1519508] [BEGIN] [databaseId:0] rdb00_127
+2021-02-12 19:44:51  [1519508] SELECT "id","title","body","created_at","updated_at","lock_revision" FROM "blog" t0
+2021-02-12 19:44:51  [1519508] [COMMIT] [databaseId:0] rdb00_127
+2021-02-12 19:46:03  [1520363] [BEGIN] [databaseId:0] rdb00_127
+2021-02-12 19:46:03  [1520363] SELECT "id","title","body","created_at","updated_at","lock_revision" FROM "blog" t0 WHERE t0."id"='1' LIMIT 1
+2021-02-12 19:46:03  [1520363] [COMMIT] [databaseId:0] rdb00_127
+2021-02-12 19:46:11  [1520363] [BEGIN] [databaseId:0] rdb00_127
+2021-02-12 19:46:11  [1520363] SELECT "id","title","body","created_at","updated_at","lock_revision" FROM "blog" t0
+2021-02-12 19:46:11  [1520363] [COMMIT] [databaseId:0] rdb00_127
+2021-02-12 21:18:02  [1576590] PRAGMA journal_mode=WAL
+2021-02-12 21:18:02  [1576590] PRAGMA foreign_keys=ON
+2021-02-12 21:18:02  [1576590] PRAGMA synchronous=NORMAL
+2021-02-12 21:18:02  [1576590] [BEGIN] [databaseId:0] rdb00_127
+2021-02-12 21:18:02  [1576590] PRAGMA busy_timeout=5000
+2021-02-12 21:18:02  [1576590] SELECT "username","password","created_at","updated_at","lock_revision" FROM "user" t0 WHERE t0."username"='katsutoshi' LIMIT 1
+2021-02-12 21:18:02  [1576590] [COMMIT] [databaseId:0] rdb00_127
+2021-02-12 21:23:16  [1580140] PRAGMA journal_mode=WAL
+2021-02-12 21:23:16  [1580140] PRAGMA foreign_keys=ON
+2021-02-12 21:23:16  [1580140] PRAGMA busy_timeout=5000
+2021-02-12 21:23:16  [1580140] PRAGMA synchronous=NORMAL
+2021-02-12 21:23:16  [1580140] [BEGIN] [databaseId:0] rdb00_127
+2021-02-12 21:23:16  [1580140] SELECT "username","password","created_at","updated_at","lock_revision" FROM "user" t0 WHERE t0."username"='admin' LIMIT 1
+2021-02-12 21:23:16  [1580140] [COMMIT] [databaseId:0] rdb00_127
+2021-02-12 21:23:24  [1580140] [BEGIN] [databaseId:0] rdb00_127
+2021-02-12 21:23:24  [1580140] SELECT "username","password","created_at","updated_at","lock_revision" FROM "user" t0 WHERE t0."username"='admin' LIMIT 1
+2021-02-12 21:23:24  [1580140] [COMMIT] [databaseId:0] rdb00_127
+2021-02-12 21:24:54  [1581412] [BEGIN] [databaseId:0] rdb00_127
+2021-02-12 21:24:54  [1581412] SELECT "username","password","created_at","updated_at","lock_revision" FROM "user" t0 WHERE t0."username"='admin' LIMIT 1
+2021-02-12 21:24:54  [1581412] [COMMIT] [databaseId:0] rdb00_127
+2021-02-12 21:25:22  [1581757] PRAGMA journal_mode=WAL
+2021-02-12 21:25:22  [1581757] PRAGMA foreign_keys=ON
+2021-02-12 21:25:22  [1581757] PRAGMA busy_timeout=5000
+2021-02-12 21:25:22  [1581757] PRAGMA synchronous=NORMAL
+2021-02-12 21:25:22  [1581757] [BEGIN] [databaseId:0] rdb00_127
+2021-02-12 21:25:22  [1581757] SELECT "username","password","created_at","updated_at","lock_revision" FROM "user" t0 WHERE t0."username"='admin' LIMIT 1
+2021-02-12 21:25:22  [1581757] [COMMIT] [databaseId:0] rdb00_127
+2021-02-12 21:31:14  [1585885] PRAGMA journal_mode=WAL
+2021-02-12 21:31:14  [1585885] PRAGMA foreign_keys=ON
+2021-02-12 21:31:14  [1585885] [BEGIN] [databaseId:0] rdb00_127
+2021-02-12 21:31:14  [1585885] PRAGMA synchronous=NORMAL
+2021-02-12 21:31:14  [1585885] PRAGMA busy_timeout=5000
+2021-02-12 21:31:14  [1585885] SELECT "username","password","created_at","updated_at","lock_revision" FROM "user" t0 WHERE t0."username"='admin' LIMIT 1
+2021-02-12 21:31:14  [1585885] [COMMIT] [databaseId:0] rdb00_127
+2021-02-12 22:46:33  [1635077] PRAGMA journal_mode=WAL
+2021-02-12 22:46:33  [1635077] PRAGMA foreign_keys=ON
+2021-02-12 22:46:33  [1635077] PRAGMA busy_timeout=5000
+2021-02-12 22:46:33  [1635077] PRAGMA synchronous=NORMAL
+2021-02-12 22:46:33  [1635077] [BEGIN] [databaseId:0] rdb00_127
+2021-02-12 22:46:33  [1635077] SELECT "username","password","created_at","updated_at","lock_revision" FROM "user" t0 WHERE t0."username"='admin' LIMIT 1
+2021-02-12 22:46:33  [1635077] [COMMIT] [databaseId:0] rdb00_127
+2021-02-12 22:46:33  [1635077] [BEGIN] [databaseId:0] rdb00_127
+2021-02-12 22:46:33  [1635077] SELECT "id","title","body","created_at","updated_at","lock_revision" FROM "blog" t0
+2021-02-12 22:46:33  [1635077] [COMMIT] [databaseId:0] rdb00_127
+2021-02-12 22:47:32  [1635776] [BEGIN] [databaseId:0] rdb00_127
+2021-02-12 22:47:32  [1635776] SELECT "id","title","body","created_at","updated_at","lock_revision" FROM "article" t0
+2021-02-12 22:47:32  [1635776] [COMMIT] [databaseId:0] rdb00_127

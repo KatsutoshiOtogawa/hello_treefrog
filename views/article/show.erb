@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<%#include "article.h" %>
+<% tfetch(Article, article); %>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= controller()->name() + ": " + controller()->activeAction() %></title>
+</head>
+<body>
+<p style="color: red"><%=$ error %></p>
+<p style="color: green"><%=$ notice %></p>
+
+<h1>Showing Article</h1>
+<dt>ID</dt><dd><%= article.id() %></dd><br />
+<dt>Title</dt><dd><%= article.title() %></dd><br />
+<dt>Body</dt><dd><%= article.body() %></dd><br />
+<dt>Created at</dt><dd><%= article.createdAt() %></dd><br />
+<dt>Updated at</dt><dd><%= article.updatedAt() %></dd><br />
+<dt>Lock Revision</dt><dd><%= article.lockRevision() %></dd><br />
+
+<%== linkTo("Edit", urla("save", article.id())) %> |
+<%== linkTo("Back", urla("index")) %>
+
+</body>
+</html>

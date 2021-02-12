@@ -17,3 +17,7 @@ HEADERS += applicationcontroller.h
 SOURCES += applicationcontroller.cpp
 HEADERS += blogcontroller.h
 SOURCES += blogcontroller.cpp
+HEADERS += accountcontroller.h
+SOURCES += accountcontroller.cpp
+HEADERS += articlecontroller.h
+SOURCES += articlecontroller.cpp

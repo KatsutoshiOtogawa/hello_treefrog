@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = helper1.0.0
-DISTDIR = /Volumes/EXTERNAL_HDD/source/blogapp/helpers/.obj/helper1.0.0
+DISTDIR = /Volumes/EXTERNAL_HDD/source/hello_treefrog/helpers/.obj/helper1.0.0
 LINK          = /Volumes/1TB_HDD/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -isysroot /Volumes/1TB_HDD/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.13 -Wl,-rpath,@executable_path/../Frameworks -single_module -dynamiclib -compatibility_version	1.0 -current_version	1.0.0 -install_name	libhelper.1.dylib
 LIBS          = $(SUBLIBS) -F/usr/local/Cellar/qt/5.15.2/lib -Wl,-rpath,. -Wl,-rpath,/usr/local/Cellar/treefrog/1.30.0/lib -L/usr/local/Cellar/treefrog/1.30.0/lib -ltreefrog -framework QtXml -framework QtQml -framework QtNetwork -framework QtCore -framework DiskArbitration -framework IOKit   
@@ -279,7 +279,7 @@ TARGET2       = libhelper.1.0.dylib
 EXPORT_VALID_ARCHS = x86_64
 EXPORT_ACTIVE_ARCHS = $(filter $(EXPORT_VALID_ARCHS), $(ARCHS))
 EXPORT_ARCH_ARGS = $(foreach arch, $(if $(EXPORT_ACTIVE_ARCHS), $(EXPORT_ACTIVE_ARCHS), $(EXPORT_VALID_ARCHS)), -arch $(arch))
-EXPORT__PRO_FILE_ = /Volumes/EXTERNAL_HDD/source/blogapp/helpers/helpers.pro
+EXPORT__PRO_FILE_ = /Volumes/EXTERNAL_HDD/source/hello_treefrog/helpers/helpers.pro
 
 
 first: all

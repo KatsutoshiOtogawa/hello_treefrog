@@ -30,7 +30,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = views1.0.0
-DISTDIR = /Volumes/EXTERNAL_HDD/source/blogapp/views/.tmp/views1.0.0
+DISTDIR = /Volumes/EXTERNAL_HDD/source/hello_treefrog/views/.tmp/views1.0.0
 SUBTARGETS    =  \
 		sub-_src
 
@@ -39,33 +39,33 @@ SUBTARGETS    =  \
 EXPORT_VALID_ARCHS = x86_64
 EXPORT_ACTIVE_ARCHS = $(filter $(EXPORT_VALID_ARCHS), $(ARCHS))
 EXPORT_ARCH_ARGS = $(foreach arch, $(if $(EXPORT_ACTIVE_ARCHS), $(EXPORT_ACTIVE_ARCHS), $(EXPORT_VALID_ARCHS)), -arch $(arch))
-EXPORT__PRO_FILE_ = /Volumes/EXTERNAL_HDD/source/blogapp/views/views.pro
+EXPORT__PRO_FILE_ = /Volumes/EXTERNAL_HDD/source/hello_treefrog/views/views.pro
 
 sub-_src-qmake_all:  FORCE
 	@test -d _src/ || mkdir -p _src/
-	cd _src/ && $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/blogapp/views/_src/_src.pro CONFIG+=debug
+	cd _src/ && $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/hello_treefrog/views/_src/_src.pro CONFIG+=debug
 	cd _src/ && $(MAKE) -f Makefile qmake_all
 sub-_src: FORCE
 	@test -d _src/ || mkdir -p _src/
-	cd _src/ && ( test -e Makefile || $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/blogapp/views/_src/_src.pro CONFIG+=debug ) && $(MAKE) -f Makefile
+	cd _src/ && ( test -e Makefile || $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/hello_treefrog/views/_src/_src.pro CONFIG+=debug ) && $(MAKE) -f Makefile
 sub-_src-make_first: FORCE
 	@test -d _src/ || mkdir -p _src/
-	cd _src/ && ( test -e Makefile || $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/blogapp/views/_src/_src.pro CONFIG+=debug ) && $(MAKE) -f Makefile 
+	cd _src/ && ( test -e Makefile || $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/hello_treefrog/views/_src/_src.pro CONFIG+=debug ) && $(MAKE) -f Makefile 
 sub-_src-all: FORCE
 	@test -d _src/ || mkdir -p _src/
-	cd _src/ && ( test -e Makefile || $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/blogapp/views/_src/_src.pro CONFIG+=debug ) && $(MAKE) -f Makefile all
+	cd _src/ && ( test -e Makefile || $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/hello_treefrog/views/_src/_src.pro CONFIG+=debug ) && $(MAKE) -f Makefile all
 sub-_src-clean: FORCE
 	@test -d _src/ || mkdir -p _src/
-	cd _src/ && ( test -e Makefile || $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/blogapp/views/_src/_src.pro CONFIG+=debug ) && $(MAKE) -f Makefile clean
+	cd _src/ && ( test -e Makefile || $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/hello_treefrog/views/_src/_src.pro CONFIG+=debug ) && $(MAKE) -f Makefile clean
 sub-_src-distclean: FORCE
 	@test -d _src/ || mkdir -p _src/
-	cd _src/ && ( test -e Makefile || $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/blogapp/views/_src/_src.pro CONFIG+=debug ) && $(MAKE) -f Makefile distclean
+	cd _src/ && ( test -e Makefile || $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/hello_treefrog/views/_src/_src.pro CONFIG+=debug ) && $(MAKE) -f Makefile distclean
 sub-_src-install_subtargets: FORCE
 	@test -d _src/ || mkdir -p _src/
-	cd _src/ && ( test -e Makefile || $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/blogapp/views/_src/_src.pro CONFIG+=debug ) && $(MAKE) -f Makefile install
+	cd _src/ && ( test -e Makefile || $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/hello_treefrog/views/_src/_src.pro CONFIG+=debug ) && $(MAKE) -f Makefile install
 sub-_src-uninstall_subtargets: FORCE
 	@test -d _src/ || mkdir -p _src/
-	cd _src/ && ( test -e Makefile || $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/blogapp/views/_src/_src.pro CONFIG+=debug ) && $(MAKE) -f Makefile uninstall
+	cd _src/ && ( test -e Makefile || $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/hello_treefrog/views/_src/_src.pro CONFIG+=debug ) && $(MAKE) -f Makefile uninstall
 
 Makefile: views.pro /usr/local/Cellar/qt/5.15.2/mkspecs/macx-clang/qmake.conf /usr/local/Cellar/qt/5.15.2/mkspecs/features/spec_pre.prf \
 		/usr/local/Cellar/qt/5.15.2/mkspecs/qdevice.pri \
@@ -498,12 +498,12 @@ xcodeproj:
 
 sub-_src-check:
 	@test -d _src/ || mkdir -p _src/
-	cd _src/ && ( test -e Makefile || $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/blogapp/views/_src/_src.pro CONFIG+=debug ) && $(MAKE) -f Makefile check
+	cd _src/ && ( test -e Makefile || $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/hello_treefrog/views/_src/_src.pro CONFIG+=debug ) && $(MAKE) -f Makefile check
 check: sub-_src-check
 
 sub-_src-benchmark:
 	@test -d _src/ || mkdir -p _src/
-	cd _src/ && ( test -e Makefile || $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/blogapp/views/_src/_src.pro CONFIG+=debug ) && $(MAKE) -f Makefile benchmark
+	cd _src/ && ( test -e Makefile || $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/hello_treefrog/views/_src/_src.pro CONFIG+=debug ) && $(MAKE) -f Makefile benchmark
 benchmark: sub-_src-benchmark
 install:install_subtargets  FORCE
 
@@ -520,5 +520,5 @@ distdir: sub-_src-distdir FORCE
 
 sub-_src-distdir: FORCE
 	@test -d _src/ || mkdir -p _src/
-	cd _src/ && ( test -e Makefile || $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/blogapp/views/_src/_src.pro CONFIG+=debug ) && $(MAKE) -e -f Makefile distdir DISTDIR=$(DISTDIR)/_src
+	cd _src/ && ( test -e Makefile || $(QMAKE) -o Makefile /Volumes/EXTERNAL_HDD/source/hello_treefrog/views/_src/_src.pro CONFIG+=debug ) && $(MAKE) -e -f Makefile distdir DISTDIR=$(DISTDIR)/_src
 
