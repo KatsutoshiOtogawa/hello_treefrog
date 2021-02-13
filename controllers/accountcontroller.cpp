@@ -16,7 +16,7 @@ void AccountController::login()
     if (!user.isNull()) {
         userLogin(&user);
         // redirect(QUrl(...));
-        redirect(url("Blog","index"));
+        redirect(url("Article","index"));
     } else {
         QString message = "Login failed";
         texport(message);

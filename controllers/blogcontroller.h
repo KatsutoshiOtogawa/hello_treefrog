@@ -8,14 +8,22 @@ class T_CONTROLLER_EXPORT BlogController : public ApplicationController
 {
     Q_OBJECT
 public:
-    BlogController() : ApplicationController() {}
+    BlogController() : ApplicationController() { }
 
 public slots:
     void index();
     void show(const QString &id);
-    void create();
-    void save(const QString &id);
-    void remove(const QString &id);
 };
+
+struct BlogArticle
+{
+    unsigned int id;
+    QString title;
+    QString body;
+    QStringList tagnames;
+};
+
+Q_DECLARE_METATYPE(BlogArticle)
+Q_DECLARE_METATYPE(QList<BlogArticle>)
 
 #endif // BLOGCONTROLLER_H

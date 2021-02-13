@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<%#include "blog.h" %>
+<%#include "article.h" %>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -7,9 +7,9 @@
 </head>
 <body>
 
-<h1>Listing Blog</h1>
+<h1>Listing Article</h1>
 
-<%== linkTo("Create a new Blog", urla("create")) %><br />
+<%== linkTo("Create a new Article", urla("create")) %><br />
 <br />
 <table border="1" cellpadding="5" style="border: 1px #d0d0d0 solid; border-collapse: collapse;">
   <tr>
@@ -17,16 +17,14 @@
     <th>Title</th>
     <th>Body</th>
   </tr>
-<% tfetch(QList<Blog>, blogList); %>
-<% for (const auto &i : blogList) { %>
+<% tfetch(QList<Article>, articleList); %>
+<% for (const auto &i : articleList) { %>
   <tr>
     <td><%= i.id() %></td>
     <td><%= i.title() %></td>
     <td><%= i.body() %></td>
     <td>
       <%== linkTo("Show", urla("show", i.id())) %>
-      <%== linkTo("Edit", urla("save", i.id())) %>
-      <%== linkTo("Remove", urla("remove", i.id()), Tf::Post, "confirm('Are you sure?')") %>
     </td>
   </tr>
 <% } %>

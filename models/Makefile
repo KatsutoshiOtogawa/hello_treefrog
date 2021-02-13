@@ -52,15 +52,11 @@ OBJECTS_DIR   = .obj/
 
 ####### Files
 
-SOURCES       = blog.cpp \
-		user.cpp \
-		article.cpp .obj/moc_blogobject.cpp \
-		.obj/moc_userobject.cpp \
+SOURCES       = user.cpp \
+		article.cpp .obj/moc_userobject.cpp \
 		.obj/moc_articleobject.cpp
-OBJECTS       = .obj/blog.o \
-		.obj/user.o \
+OBJECTS       = .obj/user.o \
 		.obj/article.o \
-		.obj/moc_blogobject.o \
 		.obj/moc_userobject.o \
 		.obj/moc_articleobject.o
 DIST          = /usr/local/Cellar/qt/5.15.2/mkspecs/features/spec_pre.prf \
@@ -275,12 +271,10 @@ DIST          = /usr/local/Cellar/qt/5.15.2/mkspecs/features/spec_pre.prf \
 		/usr/local/Cellar/qt/5.15.2/mkspecs/features/yacc.prf \
 		/usr/local/Cellar/qt/5.15.2/mkspecs/features/lex.prf \
 		models.pro sqlobjects/blogobject.h \
-		blog.h \
 		sqlobjects/userobject.h \
 		user.h \
 		sqlobjects/articleobject.h \
-		article.h blog.cpp \
-		user.cpp \
+		article.h user.cpp \
 		article.cpp
 QMAKE_TARGET  = model
 DESTDIR       = ../lib/
@@ -774,8 +768,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/local/Cellar/qt/5.15.2/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents sqlobjects/blogobject.h blog.h sqlobjects/userobject.h user.h sqlobjects/articleobject.h article.h $(DISTDIR)/
-	$(COPY_FILE) --parents blog.cpp user.cpp article.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents sqlobjects/blogobject.h sqlobjects/userobject.h user.h sqlobjects/articleobject.h article.h $(DISTDIR)/
+	$(COPY_FILE) --parents user.cpp article.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -810,65 +804,9 @@ compiler_moc_predefs_clean:
 .obj/moc_predefs.h: /usr/local/Cellar/qt/5.15.2/mkspecs/features/data/dummy.cpp
 	/Volumes/1TB_HDD/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++1y $(EXPORT_ARCH_ARGS) -isysroot /Volumes/1TB_HDD/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.13 -Wall -Wextra -dM -E -o .obj/moc_predefs.h /usr/local/Cellar/qt/5.15.2/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: .obj/moc_blogobject.cpp .obj/moc_userobject.cpp .obj/moc_articleobject.cpp
+compiler_moc_header_make_all: .obj/moc_userobject.cpp .obj/moc_articleobject.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) .obj/moc_blogobject.cpp .obj/moc_userobject.cpp .obj/moc_articleobject.cpp
-.obj/moc_blogobject.cpp: sqlobjects/blogobject.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TSqlObject \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tsqlobject.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QDateTime \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qdatetime.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QObject \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qobject.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/QSqlError \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/qsqlerror.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/QSqlRecord \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/qsqlrecord.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QStringList \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qstringlist.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QVariantMap \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qvariant.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TGlobal \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tglobal.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QMetaType \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qmetatype.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QtGlobal \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qglobal.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tfexception.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QByteArray \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qbytearray.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QString \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qstring.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tfnamespace.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TDebug \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tdebug.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QTextStream \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qtextstream.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TWebApplication \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/twebapplication.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QCoreApplication \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qcoreapplication.h \
-		/usr/local/Cellar/qt/5.15.2/mkspecs/macx-clang/qplatformdefs.h \
-		/usr/local/Cellar/qt/5.15.2/mkspecs/common/mac/qplatformdefs.h \
-		/usr/local/Cellar/qt/5.15.2/mkspecs/common/posix/qplatformdefs.h \
-		/usr/local/Cellar/qt/5.15.2/mkspecs/common/c89/qplatformdefs.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QBasicTimer \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qbasictimer.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QVariant \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QVector \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qvector.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QAbstractNativeEventFilter \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qabstractnativeeventfilter.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TModelObject \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tmodelobject.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QMap \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qmap.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QSharedData \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qshareddata.h \
-		.obj/moc_predefs.h \
-		/usr/local/Cellar/qt/5.15.2/bin/moc
-	/usr/local/Cellar/qt/5.15.2/bin/moc $(DEFINES) --include /Volumes/EXTERNAL_HDD/source/hello_treefrog/models/.obj/moc_predefs.h -I/usr/local/Cellar/qt/5.15.2/mkspecs/macx-clang -I/Volumes/EXTERNAL_HDD/source/hello_treefrog/models -I/Volumes/EXTERNAL_HDD/source/hello_treefrog/helpers -I/usr/local/Cellar/treefrog/1.30.0/include/treefrog -I/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers -I/usr/local/Cellar/qt/5.15.2/lib/QtQml.framework/Headers -I/usr/local/Cellar/qt/5.15.2/lib/QtNetwork.framework/Headers -I/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers -I/Volumes/1TB_HDD/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Volumes/1TB_HDD/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include -I/Volumes/1TB_HDD/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include -I/Volumes/1TB_HDD/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/usr/local/Cellar/qt/5.15.2/lib sqlobjects/blogobject.h -o .obj/moc_blogobject.cpp
-
+	-$(DEL_FILE) .obj/moc_userobject.cpp .obj/moc_articleobject.cpp
 .obj/moc_userobject.cpp: sqlobjects/userobject.h \
 		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TSqlObject \
 		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tsqlobject.h \
@@ -996,283 +934,6 @@ compiler_lex_clean:
 compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean 
 
 ####### Compile
-
-.obj/blog.o: blog.cpp /usr/local/Cellar/treefrog/1.30.0/include/treefrog/TreeFrogModel \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tabstractmodel.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QVariant \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qvariant.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QtCore \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qglobal.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qabstractanimation.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qabstracteventdispatcher.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qabstractitemmodel.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qabstractnativeeventfilter.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qabstractproxymodel.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qabstractstate.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qabstracttransition.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qalgorithms.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qanimationgroup.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qarraydata.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qarraydataops.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qarraydatapointer.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qatomic.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qbasictimer.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qbitarray.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qbuffer.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qbytearray.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qbytearraylist.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qbytearraymatcher.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qcache.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qcalendar.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qcborarray.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qcborcommon.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qcbormap.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qcborstream.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qcborstreamreader.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qcborstreamwriter.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qcborvalue.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qchar.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qcollator.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qcommandlineoption.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qcommandlineparser.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qcompilerdetection.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qconcatenatetablesproxymodel.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qcontainerfwd.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qcontiguouscache.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qcoreapplication.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qcoreevent.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qcryptographichash.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qdatastream.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qdatetime.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qdeadlinetimer.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qdebug.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qdir.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qdiriterator.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qeasingcurve.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qelapsedtimer.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qendian.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qeventloop.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qeventtransition.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qexception.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qfactoryinterface.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qfile.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qfiledevice.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qfileinfo.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qfileselector.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qfilesystemwatcher.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qfinalstate.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qflags.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qfuture.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qfutureinterface.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qfuturesynchronizer.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qfuturewatcher.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qgenericatomic.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qglobalstatic.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qhash.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qhashfunctions.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qhistorystate.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qidentityproxymodel.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qiodevice.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qisenum.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qitemselectionmodel.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qiterator.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qjsonarray.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qjsondocument.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qjsonobject.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qjsonvalue.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qlibrary.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qlibraryinfo.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qline.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qlinkedlist.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qlist.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qlocale.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qlockfile.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qloggingcategory.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qmap.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qmargins.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qmath.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qmessageauthenticationcode.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qmetaobject.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qmetatype.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qmimedata.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qmimedatabase.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qmimetype.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qmutex.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qnamespace.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qnumeric.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qobject.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qobjectcleanuphandler.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qobjectdefs.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qoperatingsystemversion.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qpair.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qparallelanimationgroup.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qpauseanimation.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qplugin.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qpluginloader.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qpoint.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qpointer.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qprocess.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qprocessordetection.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qpropertyanimation.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qqueue.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qrandom.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qreadwritelock.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qrect.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qrefcount.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qregexp.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qregularexpression.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qresource.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qresultstore.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qrunnable.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qsavefile.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qscopedpointer.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qscopedvaluerollback.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qscopeguard.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qsemaphore.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qsequentialanimationgroup.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qset.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qsettings.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qshareddata.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qsharedmemory.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qsharedpointer.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qsignalmapper.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qsignaltransition.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qsize.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qsocketnotifier.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qsortfilterproxymodel.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qstack.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qstandardpaths.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qstate.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qstatemachine.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qstorageinfo.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qstring.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qstringalgorithms.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qstringbuilder.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qstringlist.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qstringlistmodel.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qstringliteral.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qstringmatcher.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qstringview.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qsysinfo.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qsystemdetection.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qsystemsemaphore.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qtemporarydir.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qtemporaryfile.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qtextboundaryfinder.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qtextcodec.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qtextstream.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qthread.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qthreadpool.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qthreadstorage.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qtimeline.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qtimer.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qtimezone.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qtranslator.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qtransposeproxymodel.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qtypeinfo.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qtypetraits.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qurl.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qurlquery.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/quuid.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qvariantanimation.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qvarlengtharray.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qvector.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qversionnumber.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qversiontagging.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qwaitcondition.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qwineventnotifier.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qxmlstream.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/qtcoreversion.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TGlobal \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tglobal.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QMetaType \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QtGlobal \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tfexception.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QByteArray \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QString \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tfnamespace.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TDebug \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tdebug.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QTextStream \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TWebApplication \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/twebapplication.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QCoreApplication \
-		/usr/local/Cellar/qt/5.15.2/mkspecs/macx-clang/qplatformdefs.h \
-		/usr/local/Cellar/qt/5.15.2/mkspecs/common/mac/qplatformdefs.h \
-		/usr/local/Cellar/qt/5.15.2/mkspecs/common/posix/qplatformdefs.h \
-		/usr/local/Cellar/qt/5.15.2/mkspecs/common/c89/qplatformdefs.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QBasicTimer \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QVector \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QAbstractNativeEventFilter \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tcriteria.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tcriteriaconverter.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tsystemglobal.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QMap \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QSettings \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QMetaObject \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TCriteria \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TSqlQuery \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tsqlquery.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/QtSql \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/qtsqlglobal.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/qsqldatabase.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/qsqldriver.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/qsqldriverplugin.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/qsqlerror.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/qsqlfield.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/qsqlindex.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/qsqlquery.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/qsqlquerymodel.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/qsqlrecord.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/qsqlresult.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/qsqltablemodel.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/qtsqlversion.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tmodelutil.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QList \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TCriteriaConverter \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TMongoODMapper \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tmongoodmapper.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TCriteriaMongoConverter \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tcriteriamongoconverter.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QMetaProperty \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TMongoObject \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tmongoobject.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QDateTime \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QObject \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QStringList \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QVariantMap \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TModelObject \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tmodelobject.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TMongoQuery \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tmongoquery.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TKvsDatabase \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tkvsdatabase.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TSqlORMapper \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tsqlormapper.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TSqlJoin \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tsqljoin.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TSqlObject \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tsqlobject.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/QSqlError \
-		/usr/local/Cellar/qt/5.15.2/lib/QtSql.framework/Headers/QSqlRecord \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TSqlORMapperIterator \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tsqlormapperiterator.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tsqlqueryormapper.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TSystemGlobal \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tsqlqueryormapperiterator.h \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TSqlQueryORMapper \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QJsonDocument \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QJsonObject \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QJsonArray \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QJsonValue \
-		blog.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QSharedDataPointer \
-		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/TAbstractModel \
-		sqlobjects/blogobject.h \
-		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QSharedData
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o .obj/blog.o blog.cpp
 
 .obj/user.o: user.cpp /usr/local/Cellar/treefrog/1.30.0/include/treefrog/TreeFrogModel \
 		/usr/local/Cellar/treefrog/1.30.0/include/treefrog/tabstractmodel.h \
@@ -1829,9 +1490,6 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 		sqlobjects/articleobject.h \
 		/usr/local/Cellar/qt/5.15.2/lib/QtCore.framework/Headers/QSharedData
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o .obj/article.o article.cpp
-
-.obj/moc_blogobject.o: .obj/moc_blogobject.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o .obj/moc_blogobject.o .obj/moc_blogobject.cpp
 
 .obj/moc_userobject.o: .obj/moc_userobject.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o .obj/moc_userobject.o .obj/moc_userobject.cpp
