@@ -146,3 +146,28 @@
 2021-02-13 15:18:17  [1941709] [BEGIN] [databaseId:0] rdb00_127
 2021-02-13 15:18:17  [1941709]     SELECT         article.id         ,article.title         ,article.body         ,group_concat(tag.name, ',') AS tagnames     FROM         article             INNER JOIN article_tag         ON article.id = article_tag.article_id             INNER JOIN tag         ON article_tag.tag_id = tag.id     WHERE         article.id = :id     GROUP BY         article.id     ;
 2021-02-13 15:18:17  [1941709] [COMMIT] [databaseId:0] rdb00_127
+2021-02-13 16:24:22  [1995695] PRAGMA journal_mode=WAL
+2021-02-13 16:24:22  [1995695] PRAGMA busy_timeout=5000
+2021-02-13 16:24:22  [1995695] (Query failed) [near ",": syntax error] (Query prepare)     SELECT         article.id         ,article.title         ,article.body         ,,group_concat(tag.id, ',') AS tagids         ,group_concat(tag.name, ',') AS tagnames     FROM         article             INNER JOIN article_tag         ON article.id = article_tag.article_id             INNER JOIN tag         ON article_tag.tag_id = tag.id     WHERE         article.id = :id     GROUP BY         article.id     ;
+2021-02-13 16:24:22  [1995695] PRAGMA foreign_keys=ON
+2021-02-13 16:24:22  [1995695] (Query failed) [Parameter count mismatch]     SELECT         article.id         ,article.title         ,article.body         ,,group_concat(tag.id, ',') AS tagids         ,group_concat(tag.name, ',') AS tagnames     FROM         article             INNER JOIN article_tag         ON article.id = article_tag.article_id             INNER JOIN tag         ON article_tag.tag_id = tag.id     WHERE         article.id = :id     GROUP BY         article.id     ;
+2021-02-13 16:24:22  [1995695] [BEGIN] [databaseId:0] rdb00_127
+2021-02-13 16:24:22  [1995695] [COMMIT] [databaseId:0] rdb00_127
+2021-02-13 16:24:22  [1995695] PRAGMA synchronous=NORMAL
+2021-02-13 16:25:06  [1996823] PRAGMA journal_mode=WAL
+2021-02-13 16:25:06  [1996823] PRAGMA foreign_keys=ON
+2021-02-13 16:25:06  [1996823] PRAGMA busy_timeout=5000
+2021-02-13 16:25:06  [1996823] PRAGMA synchronous=NORMAL
+2021-02-13 16:25:06  [1996823] [BEGIN] [databaseId:0] rdb00_127
+2021-02-13 16:25:06  [1996823]     SELECT         article.id         ,article.title         ,article.body         ,group_concat(tag.id, ',') AS tagids         ,group_concat(tag.name, ',') AS tagnames     FROM         article             INNER JOIN article_tag         ON article.id = article_tag.article_id             INNER JOIN tag         ON article_tag.tag_id = tag.id     WHERE         article.id = :id     GROUP BY         article.id     ;
+2021-02-13 16:25:06  [1996823] [COMMIT] [databaseId:0] rdb00_127
+2021-02-13 17:23:25  [2041559] PRAGMA journal_mode=WAL
+2021-02-13 17:23:25  [2041559] PRAGMA foreign_keys=ON
+2021-02-13 17:23:25  [2041559] [BEGIN] [databaseId:0] rdb00_127
+2021-02-13 17:23:25  [2041559] PRAGMA busy_timeout=5000
+2021-02-13 17:23:25  [2041559] PRAGMA synchronous=NORMAL
+2021-02-13 17:23:25  [2041559]     SELECT         article.id         ,article.title         ,article.body         ,group_concat(tag.id, ',') AS tagids         ,group_concat(tag.name, ',') AS tagnames     FROM         article             INNER JOIN article_tag         ON article.id = article_tag.article_id             INNER JOIN tag         ON article_tag.tag_id = tag.id     WHERE         article.id = :id     GROUP BY         article.id     ;
+2021-02-13 17:23:25  [2041559] [COMMIT] [databaseId:0] rdb00_127
+2021-02-13 17:23:30  [2041559] [BEGIN] [databaseId:0] rdb00_127
+2021-02-13 17:23:30  [2041559]     SELECT         tag.id         ,tag.name         ,group_concat(article.id, ',') AS articleids         ,group_concat(article.title, ',') AS articletitles     FROM         tag             INNER JOIN article_tag         ON tag.id = article_tag.tag_id             INNER JOIN article         ON article_tag.article_id = article.id     WHERE         tag.id = :id     GROUP BY         article.id     ;
+2021-02-13 17:23:30  [2041559] [COMMIT] [databaseId:0] rdb00_127

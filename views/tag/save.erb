@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<%#include "tag.h" %>
+<% tfetch(QVariantMap, tag); %>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= controller()->name() + ": " + controller()->activeAction() %></title>
+</head>
+<body>
+<p style="color: red"><%=$ error %></p>
+<p style="color: green"><%=$ notice %></p>
+
+<h1>Editing Tag</h1>
+
+<%== formTag(urla("save", tag["id"]), Tf::Post) %>
+  <p>
+    <label>ID<br /><input type="text" name="tag[id]" value="<%= tag["id"] %>" readonly="readonly" /></label>
+  </p>
+  <p>
+    <label>Name<br /><input type="text" name="tag[name]" value="<%= tag["name"] %>" /></label>
+  </p>
+  <p>
+    <input type="submit" value="Save" />
+  </p>
+</form>
+
+<%== linkTo("Show", urla("show", tag["id"])) %> |
+<%== linkTo("Back", urla("index")) %>
+</body>
+</html>

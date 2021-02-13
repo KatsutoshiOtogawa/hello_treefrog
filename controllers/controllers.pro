@@ -21,3 +21,5 @@ HEADERS += articlecontroller.h
 SOURCES += articlecontroller.cpp
 HEADERS += blogcontroller.h
 SOURCES += blogcontroller.cpp
+HEADERS += tagcontroller.h
+SOURCES += tagcontroller.cpp

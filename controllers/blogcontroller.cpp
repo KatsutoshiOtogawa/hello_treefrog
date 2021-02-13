@@ -11,15 +11,13 @@ void BlogController::index()
 
 void BlogController::show(const QString &id)
 {
-    // auto article = Article::get(id);
-    // texport(article);
-
     TSqlQuery query;
     query.prepare("\
     SELECT \
         article.id \
         ,article.title \
         ,article.body \
+        ,group_concat(tag.id, ',') AS tagids \
         ,group_concat(tag.name, ',') AS tagnames \
     FROM \
         article \
@@ -41,38 +39,50 @@ void BlogController::show(const QString &id)
         blogarticle.id = query.value(0).toInt();
         blogarticle.title = query.value(1).toString();
         blogarticle.body = query.value(2).toString();
-        blogarticle.tagnames = query.value(3).toString().split(",");
+        blogarticle.tagids = query.value(3).toString().split(",");
+        blogarticle.tagnames = query.value(4).toString().split(",");
     }
 
     texport(blogarticle);
-    // while (query.next()) {
-// int id = query.value(0).toInt(); // 最初のフィールドをint型へ変換
-//     QString str = query.value(1).toString(); // 2番目のフィールドをQString型へ変換
-//     // do something
-// }
-    // 集合関数を使ってタグを,区切りにまとめる。group_concat(name)
-    // ArticleObjectを継承という形で
-//     TSqlQuery query;
-// query.prepare("INSERT INTO blog (id, title, body) VALUES (:id, :title, :body)");
-// query.bind(":id", 100).bind(":title", tr("Hello")).bind(":body", tr("Hello world"));
-// query.exec();
-// while (query.next()) {
-// int id = query.value(0).toInt(); // 最初のフィールドをint型へ変換
-//     QString str = query.value(1).toString(); // 2番目のフィールドをQString型へ変換
-//     // do something
-// }
-// TSqlQueryORMapper<BlogObject> mapper;
-// mapper.prepare("SELECT blog.* FROM blog WHERE ...");
-// mapper.exec();  // クエリ実行
 
-// TSqlQueryORMapperIterator<BlogObject> it(mapper);
-// while (it.hasNext()) {
-//     BlogObject obj = it.next();
-//     // do something
-//      :
-// }
     render();
 }
 
+void BlogController::tag(const QString &id)
+{
+    TSqlQuery query;
+    query.prepare("\
+    SELECT \
+        tag.id \
+        ,tag.name \
+        ,group_concat(article.id, ',') AS articleids \
+        ,group_concat(article.title, ',') AS articletitles \
+    FROM \
+        tag \
+            INNER JOIN article_tag \
+        ON tag.id = article_tag.tag_id \
+            INNER JOIN article \
+        ON article_tag.article_id = article.id \
+    WHERE \
+        tag.id = :id \
+    GROUP BY \
+        article.id \
+    ;");
+    query.bind(":id", id);
+    query.exec();
+
+    TagActionData tagactiondata = {};
+
+    while (query.next()) {
+        tagactiondata.id = query.value(0).toInt();
+        tagactiondata.name = query.value(1).toString();
+        tagactiondata.articleids = query.value(2).toString().split(",");
+        tagactiondata.articletitles = query.value(3).toString().split(",");
+    }
+
+    texport(tagactiondata);
+
+    render();
+}
 // Don't remove below this line
 T_DEFINE_CONTROLLER(BlogController)

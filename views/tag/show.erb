@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<%#include "tag.h" %>
+<% tfetch(Tag, tag); %>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= controller()->name() + ": " + controller()->activeAction() %></title>
+</head>
+<body>
+<p style="color: red"><%=$ error %></p>
+<p style="color: green"><%=$ notice %></p>
+
+<h1>Showing Tag</h1>
+<dt>ID</dt><dd><%= tag.id() %></dd><br />
+<dt>Name</dt><dd><%= tag.name() %></dd><br />
+<dt>Created at</dt><dd><%= tag.createdAt() %></dd><br />
+<dt>Updated at</dt><dd><%= tag.updatedAt() %></dd><br />
+<dt>Lock Revision</dt><dd><%= tag.lockRevision() %></dd><br />
+
+<%== linkTo("Edit", urla("save", tag.id())) %> |
+<%== linkTo("Back", urla("index")) %>
+
+</body>
+</html>

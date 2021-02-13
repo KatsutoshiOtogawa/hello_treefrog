@@ -155,3 +155,25 @@
 2021-02-13 15:19:22 WARN  [1942602] Reading a socket timed out after 10 seconds. Descriptor:15
 2021-02-13 15:19:22 WARN  [1942600] Reading a socket timed out after 10 seconds. Descriptor:11
 2021-02-13 15:19:22 INFO  [1941338] TreeFrog application servers shutdown completed
+2021-02-13 16:23:34 INFO  [1994841] TreeFrog Framework version 1.30.0
+2021-02-13 16:23:34 INFO  [1994841] Execution environment: Qt 5.15.2 / macOS 10.15
+2021-02-13 16:23:34 INFO  [1994841] TreeFrog application servers started up.
+2021-02-13 16:24:32 WARN  [1995696] Reading a socket timed out after 10 seconds. Descriptor:13
+2021-02-13 16:24:32 WARN  [1995695] Reading a socket timed out after 10 seconds. Descriptor:11
+2021-02-13 16:24:52 INFO  [1994841] TreeFrog application servers shutting down
+2021-02-13 16:24:52 INFO  [1994841] TreeFrog application servers shutdown completed
+2021-02-13 16:25:01 INFO  [1996622] TreeFrog Framework version 1.30.0
+2021-02-13 16:25:01 INFO  [1996622] Execution environment: Qt 5.15.2 / macOS 10.15
+2021-02-13 16:25:01 INFO  [1996622] TreeFrog application servers started up.
+2021-02-13 16:25:16 WARN  [1996825] Reading a socket timed out after 10 seconds. Descriptor:15
+2021-02-13 16:25:16 WARN  [1996823] Reading a socket timed out after 10 seconds. Descriptor:12
+2021-02-13 16:40:38 INFO  [1996622] TreeFrog application servers shutting down
+2021-02-13 16:40:39 INFO  [1996622] TreeFrog application servers shutdown completed
+2021-02-13 17:22:05 INFO  [2040378] TreeFrog Framework version 1.30.0
+2021-02-13 17:22:05 INFO  [2040378] Execution environment: Qt 5.15.2 / macOS 10.15
+2021-02-13 17:22:05 INFO  [2040378] TreeFrog application servers started up.
+2021-02-13 17:23:34 WARN  [2041561] Reading a socket timed out after 10 seconds. Descriptor:13
+2021-02-13 17:23:40 WARN  [2041559] Reading a socket timed out after 10 seconds. Descriptor:10
+2021-02-13 17:23:47 WARN  [2041809] Reading a socket timed out after 10 seconds. Descriptor:13
+2021-02-13 17:31:30 INFO  [2040378] TreeFrog application servers shutting down
+2021-02-13 17:31:31 INFO  [2040378] TreeFrog application servers shutdown completed

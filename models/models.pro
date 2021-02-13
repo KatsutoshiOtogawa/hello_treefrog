@@ -19,3 +19,6 @@ SOURCES += user.cpp
 HEADERS += sqlobjects/articleobject.h
 HEADERS += article.h
 SOURCES += article.cpp
+HEADERS += sqlobjects/tagobject.h
+HEADERS += tag.h
+SOURCES += tag.cpp
